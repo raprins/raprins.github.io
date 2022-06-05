@@ -1,0 +1,63 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: portofolio
+  namespace: portfolio
+spec:
+  selector:
+    matchLabels:
+      app: portofolio
+  template:
+    metadata:
+      labels:
+        app: portofolio
+    spec:
+      containers:
+      - name: portofolio
+        image: raprincis/portfolio
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: portfolio-service
+  namespace: portfolio
+spec:
+  selector:
+    app: MyApp
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+# This is more Kyma thing
+---
+apiVersion: gateway.kyma-project.io/v1alpha1
+kind: APIRule
+metadata:
+  name: some-external
+  namespace: portfolio
+  labels:
+    app.kubernetes.io/name: some-external
+spec:
+  gateway: kyma-gateway.kyma-system.svc.cluster.local
+  rules:
+    - accessStrategies:
+        - handler: allow
+          config: {}
+      methods:
+        - GET
+        - PATCH
+        - HEAD
+      path: /.*
+  service:
+    host: raprincis.c-39be421.kyma.ondemand.com
+    name: portfolio-service
+    port: 80
+

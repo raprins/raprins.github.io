@@ -1,0 +1,283 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --ff-serif: 'DM Serif Display', serif;
+    --color-light: #626265;
+    --color-primary-base: #FBCB0A;
+    --color-primary-dark: #cda60c;
+
+    --color-secondary-base: #e92ba6;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #3a3a3f;
+    
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+svg {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
+}
+
+section {
+    min-height: 100vh;
+}
+
+input, textarea {
+    padding: .5rem 1rem;
+    width: 100%;
+    display: block;
+    font-size: inherit;
+    font-family: inherit;
+}
+
+button {
+    border: none;
+    
+}
+
+textarea {
+    resize: none;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.text-serif {
+    font-family: var(--ff-serif);
+    letter-spacing: 1px;
+}
+
+.actions {
+    width: 100%;
+    display: flex;
+}
+
+.btn {
+    padding: .75rem 1rem;
+    background-color: #525257;
+    display: inline-flex;
+    background-color: var(--color-light);
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: .8rem;
+    cursor: pointer;
+    letter-spacing: 1.5px;
+    font-weight: 500;
+
+    transition: .2s ease-in-out;
+}
+
+.avatar{
+    --size: 80px;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+}
+
+.app {
+    --size: calc(100% - 1rem);
+    position: relative;
+    width: var(--size);
+    margin: 0 auto;
+}
+
+.elsewhere {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    background-color: #e4e4e8;
+}
+
+.elsewhere a {
+    --size: 24px;
+    display: flex;
+    width: var(--size);
+    height: var(--size);
+    color: var(--color-light);
+    transition: .2s ease-in-out;
+}
+
+.elsewhere .linkedin:hover {
+    color: rgb(10, 102, 194);
+}
+
+.elsewhere .github:hover {
+    color: rgb(36, 41, 47);
+}
+
+.introduction {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.intro-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+}
+
+.intro-container .poste {
+    color: var(--color-light);
+    width: 60ch;
+}
+
+.intro-container .actions {
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+.resume {
+    margin: 1rem 0 2rem 0;
+    line-height: 1rem;
+}
+
+.btn.primary {
+    background-color: var(--color-primary-base);
+    color: var(--color-light);  
+}
+
+.btn.primary:hover {
+    background-color: var(--color-primary-dark);
+}
+
+.btn.secondary {
+    background-color: var(--color-secondary-base);
+}
+
+.text-primary {
+    color: var(--color-primary-base)
+}
+
+.text-secondary {
+    color: var(--color-secondary-base)
+}
+
+.competences {
+    --spacing: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing);
+}
+
+.competence {
+    flex: 1;
+}
+
+.competence h2 {
+    font-size: 1.25rem;
+}
+
+
+.form-control {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.form-control label {
+    display: block;
+    font-size: .8rem;
+    font-weight: bold;
+    color: var(--color-light);
+}
+
+@media screen and (min-width: 640px) {
+    .app {
+        --size: 75%;
+    }
+
+    .avatar {
+        --size: 128px;
+    }
+
+    .intro-container {
+        flex-direction: row;
+        gap: 2rem;
+    }
+
+    .intro-container {
+        text-align: start;
+    }
+
+    .intro-container h1 {
+        font-size: 2.5rem;
+        line-height: 2rem;
+    }
+
+    .intro-container .poste {
+        font-size: 1.5rem;
+    }
+
+    .intro-container .actions  {
+        margin-top: 1rem;
+        justify-content: start;
+        gap: 1rem;
+    }
+
+    .competences {
+        flex-direction: row;
+        align-items: flex-start;
+
+    }
+
+    .competence h2 {
+        margin-bottom: 1rem;
+    }
+
+    .form-control label {
+        font-size: .9rem;
+        margin-bottom: .25rem;
+    }
+
+    .contact {
+        display: flex;
+        align-items: center;
+    }
+
+    form {
+        width: 700px;
+        margin: 0 auto;
+    }
+
+    .elsewhere {
+        position: fixed;
+        top: 0;
+        left: 2rem;
+        right: auto;
+        bottom: 0;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        background-color: transparent;
+    }
+}
