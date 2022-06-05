@@ -2,19 +2,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: portofolio
+  name: coded-portofolio
   namespace: portfolio
 spec:
   selector:
     matchLabels:
-      app: portofolio
+      app: coded-portofolio
   template:
     metadata:
       labels:
-        app: portofolio
+        app: coded-portofolio
     spec:
       containers:
-      - name: portofolio
+      - name: coded-portofolio
         image: raprincis/portfolio
         resources:
           limits:
@@ -26,11 +26,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: portfolio-service
+  name: coded-portfolio-service
   namespace: portfolio
 spec:
   selector:
-    app: MyApp
+    app: coded-portofolio
   ports:
     - name: http
       protocol: TCP
@@ -44,7 +44,7 @@ metadata:
   name: some-external
   namespace: portfolio
   labels:
-    app.kubernetes.io/name: some-external
+    app.kubernetes.io/name: coded-portfolio-service
 spec:
   gateway: kyma-gateway.kyma-system.svc.cluster.local
   rules:
@@ -57,7 +57,7 @@ spec:
         - HEAD
       path: /.*
   service:
-    host: raprincis.c-39be421.kyma.ondemand.com
-    name: portfolio-service
+    host: raprincis-coded.c-39be421.kyma.ondemand.com
+    name: coded-portfolio-service
     port: 80
 
